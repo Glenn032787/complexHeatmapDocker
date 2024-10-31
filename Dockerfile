@@ -1,6 +1,13 @@
 # Use the official R base image
 FROM rocker/r-ver:4.0.0-ubuntu18.04
 
+# Set the locale
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8     
+
 # Install required R packages
 RUN apt-get update && \
 	apt-get install -y build-essential libglpk40 libcairo2-dev libxt-dev && \
