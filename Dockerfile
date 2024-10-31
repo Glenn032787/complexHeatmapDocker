@@ -3,7 +3,7 @@ FROM rocker/r-ver:4.0.0-ubuntu18.04
 
 # Install required R packages
 RUN apt-get update && \
-	apt-get install -y build-essential libglpk40 && \
+	apt-get install -y build-essential libglpk40 libcairo2-dev libxt-dev && \
 	install2.r --error --skipinstalled \
 	circlize RColorBrewer tidyverse reshape2 Cairo && \
 	rm -rf /tmp/downloaded_packages
