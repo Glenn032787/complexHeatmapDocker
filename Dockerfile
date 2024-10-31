@@ -9,9 +9,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install required R packages
-RUN R -e "install.packages('BiocManager', repos='https://cloud.r-project.org')" && \
-    R -e "BiocManager::install(c('ComplexHeatmap'))" && \
-    R -e "install.packages(c('tidyverse','RColorBrewer','circlize'), repos='https://cloud.r-project.org')"
+RUN R -e "install.packages('BiocManager')" && \
+    R -e "BiocManager::install('ComplexHeatmap')" && \
+    R -e "install.packages('RColorBrewer')" && \
+    R -e "install.packages('tidyverse')" && \
+    R -e "install.packages('circlize')"
 
 
 # Set the working directory (optional)
