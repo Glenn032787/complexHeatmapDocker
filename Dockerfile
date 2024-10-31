@@ -15,6 +15,8 @@ RUN apt-get update && \
 	circlize RColorBrewer tidyverse reshape2 Cairo && \
 	rm -rf /tmp/downloaded_packages
 
+RUN apt install tzdata
+
 # Install bioconductor packages
 RUN install2.r --error --skipinstalled BiocManager && \
 	R -e 'BiocManager::install(ask = F)' && \
