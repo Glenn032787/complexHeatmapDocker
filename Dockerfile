@@ -5,7 +5,7 @@ FROM rocker/r-ver:4.0.0-ubuntu18.04
 RUN apt-get update && \
 	apt-get install -y build-essential libglpk40 && \
 	install2.r --error --skipinstalled \
-	circlize RColorBrewer tidyverse && \
+	circlize RColorBrewer tidyverse reshape2 Cairo && \
 	rm -rf /tmp/downloaded_packages
 
 # Install bioconductor packages
