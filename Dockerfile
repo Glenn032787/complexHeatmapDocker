@@ -1,5 +1,5 @@
 # Use the official R base image
-FROM rocker/r-ver:4.3.0  # Adjust R version as needed
+FROM rocker/r-ver:4.0.0-ubuntu18.04
 
 # Install system dependencies needed for some R packages
 RUN apt-get update && apt-get install -y \
@@ -17,6 +17,5 @@ RUN R -e "install.packages('BiocManager', repos='https://cloud.r-project.org')" 
 # Set the working directory (optional)
 WORKDIR /workspace
 
-ComplexHeatmap is install by biomanger
 # Set the default command to start an R session (can be overridden in Snakemake)
 CMD ["R"]
